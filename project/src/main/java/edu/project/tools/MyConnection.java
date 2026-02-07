@@ -11,7 +11,7 @@ public class MyConnection {
     public String pwd ="";
 
 
-    private Connection cnx;
+    private static Connection cnx;
     public MyConnection() {
         try {
            cnx = DriverManager.getConnection(url,login,pwd);
@@ -21,5 +21,8 @@ public class MyConnection {
         }
     }
 
-
+    public static Connection getCnx() {
+        return cnx;
+    }
 }
+
