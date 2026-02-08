@@ -1,13 +1,16 @@
-package edu.project.services;
+package edu.ProjetPi.services;
 
-import edu.project.entities.Role;
-import edu.project.entities.Utilisateur;
-import edu.project.interfaces.IService;
-import edu.project.tools.MyConnection;
+import edu.ProjetPi.entities.Role;
+import edu.ProjetPi.entities.Utilisateur;
+import edu.ProjetPi.interfaces.IService;
+import edu.ProjetPi.tools.MyConnection;
+
 
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
+
+
 
 public class UtilisateurService implements IService<Utilisateur> {
 

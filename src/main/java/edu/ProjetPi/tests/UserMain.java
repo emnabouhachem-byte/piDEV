@@ -1,10 +1,10 @@
-package edu.project.tests;
+package edu.ProjetPi.tests;
 
-import edu.project.entities.Role;
-import edu.project.entities.Utilisateur;
-import edu.project.services.EquipeService;
-import edu.project.services.ProjetService;
-import edu.project.services.UtilisateurService;
+import edu.ProjetPi.entities.Role;
+import edu.ProjetPi.entities.Utilisateur;
+import edu.ProjetPi.services.EquipeService;
+import edu.ProjetPi.services.ProjetService;
+import edu.ProjetPi.services.UtilisateurService;
 
 import java.sql.SQLException;
 
@@ -17,8 +17,8 @@ public class UserMain {
         ProjetService ps = new ProjetService();
 
 
-         try {
-           // ================== AJOUT ADMIN ==================
+        try {
+            // ================== AJOUT ADMIN ==================
             Utilisateur admin = new Utilisateur(
                     "mina",
                     "tounsi",
@@ -66,28 +66,28 @@ public class UserMain {
             us.updateEntity(idToUpdate, uUpdated);
             */
 
-           System.out.println("------ LISTE UTILISATEURS ------");
-             for (Utilisateur u : us.getData()) {
-                 System.out.print(u.getId() + " | " +
-                         u.getNom() + " " + u.getPrenom() + " | " +
-                         u.getRole());
+            System.out.println("------ LISTE UTILISATEURS ------");
+            for (Utilisateur u : us.getData()) {
+                System.out.print(u.getId() + " | " +
+                        u.getNom() + " " + u.getPrenom() + " | " +
+                        u.getRole());
 
-                 if (u.getRole() == Role.EMPLOYE) { // affichage spécifique EMPLOYE
-                     System.out.print(" | Poste: " + u.getPoste() +
-                             " | Salaire: " + u.getSalaire() +
-                             " | Date Embauche: " + u.getDateEmbauche() +
-                             " | Statut: " + u.getStatut() +
-                             " | Competences: " + u.getCompetences() +
-                             " | Adresse: " + u.getAdresse() +
-                             " | IdEquipe: " + u.getIdEquipe());
-                 }
-                 System.out.println();
-             }
+                if (u.getRole() == Role.EMPLOYE) { // affichage spécifique EMPLOYE
+                    System.out.print(" | Poste: " + u.getPoste() +
+                            " | Salaire: " + u.getSalaire() +
+                            " | Date Embauche: " + u.getDateEmbauche() +
+                            " | Statut: " + u.getStatut() +
+                            " | Competences: " + u.getCompetences() +
+                            " | Adresse: " + u.getAdresse() +
+                            " | IdEquipe: " + u.getIdEquipe());
+                }
+                System.out.println();
+            }
 
             // ================== DELETE ==================
-          //  Utilisateur uDelete = new Utilisateur();
-          //  uDelete.setId(25);
-           // us.deleteEntity(uDelete);
+            //  Utilisateur uDelete = new Utilisateur();
+            //  uDelete.setId(25);
+            // us.deleteEntity(uDelete);
 
         } catch (SQLException e) {
             System.out.println("Erreur SQL : " + e.getMessage());

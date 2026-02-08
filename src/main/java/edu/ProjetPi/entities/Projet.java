@@ -1,4 +1,5 @@
-package edu.project.entities;
+package edu.ProjetPi.entities;
+
 
 import java.time.LocalDate;
 import java.util.List;
@@ -115,4 +116,3 @@ public class Projet {
                 '}';
     }
 }
-

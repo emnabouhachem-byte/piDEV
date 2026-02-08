@@ -1,4 +1,4 @@
-package edu.project.tools;
+package edu.ProjetPi.tools;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -11,18 +11,17 @@ public class MyConnection {
     public String pwd ="";
 
 
-    private static Connection cnx;
+    private Connection cnx;
     public MyConnection() {
         try {
-           cnx = DriverManager.getConnection(url,login,pwd);
+            cnx = DriverManager.getConnection(url,login,pwd);
             System.out.println("connection établie!");
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
     }
 
-    public static Connection getCnx() {
+    public Connection getCnx() {
         return cnx;
     }
 }
-

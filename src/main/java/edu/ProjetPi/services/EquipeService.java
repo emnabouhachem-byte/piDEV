@@ -1,10 +1,10 @@
-package edu.project.services;
+package edu.ProjetPi.services;
 
-import edu.project.entities.Equipe;
-import edu.project.entities.Utilisateur;
-import edu.project.entities.Role;
-import edu.project.interfaces.IService;
-import edu.project.tools.MyConnection;
+import edu.ProjetPi.entities.Equipe;
+import edu.ProjetPi.entities.Utilisateur;
+import edu.ProjetPi.entities.Role;
+import edu.ProjetPi.interfaces.IService;
+import edu.ProjetPi.tools.MyConnection;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -31,7 +31,7 @@ public class EquipeService implements IService<Equipe> {
                 idEquipe = rs.getInt(1);
             }
 
-            // ربط الموظفين
+
             if (equipe.getListeEmployes() != null) {
                 for (Utilisateur u : equipe.getListeEmployes()) {
                     String sqlUser = "UPDATE utilisateur SET idEquipe = ? WHERE id = ?";
@@ -50,7 +50,7 @@ public class EquipeService implements IService<Equipe> {
     // ================= DELETE =================
     @Override
     public void deleteEntity(Equipe equipe) throws SQLException {
-        // إزالة ارتباط الموظفين
+
         String sqlUser = "UPDATE utilisateur SET idEquipe = NULL WHERE idEquipe = ?";
         try (PreparedStatement psUser = new MyConnection().getCnx().prepareStatement(sqlUser)) {
             psUser.setInt(1, equipe.getId());
@@ -87,14 +87,13 @@ public class EquipeService implements IService<Equipe> {
                 System.out.println("Equipe introuvable ");
         }
 
-        // إزالة ارتباط الموظفين القدامى
         String sqlClear = "UPDATE utilisateur SET idEquipe = NULL WHERE idEquipe = ?";
         try (PreparedStatement psClear = new MyConnection().getCnx().prepareStatement(sqlClear)) {
             psClear.setInt(1, id);
             psClear.executeUpdate();
         }
 
-        // ربط الموظفين الجدد
+
         if (equipe.getListeEmployes() != null) {
             for (Utilisateur u : equipe.getListeEmployes()) {
                 String sqlUser = "UPDATE utilisateur SET idEquipe = ? WHERE id = ?";
@@ -125,7 +124,7 @@ public class EquipeService implements IService<Equipe> {
                 e.setNbr_membre(rs.getInt("nbr_membre"));
                 e.setBudget(rs.getDouble("budget"));
 
-                // جلب الموظفين المرتبطين
+                // yjib les employe
                 String sqlEmp = "SELECT * FROM utilisateur WHERE idEquipe = ?";
                 try (PreparedStatement psEmp = new MyConnection().getCnx().prepareStatement(sqlEmp)) {
                     psEmp.setInt(1, e.getId());

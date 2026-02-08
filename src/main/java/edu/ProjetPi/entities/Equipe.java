@@ -1,8 +1,8 @@
-package edu.project.entities;
+package edu.ProjetPi.entities;
 
 import java.time.LocalDate;
 import java.util.List;
-import edu.project.entities.Utilisateur;
+import edu.ProjetPi.entities.Utilisateur;
 
 public class Equipe {
     private int id;

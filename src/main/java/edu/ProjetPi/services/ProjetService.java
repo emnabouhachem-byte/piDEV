@@ -1,9 +1,9 @@
-package edu.project.services;
+package edu.ProjetPi.services;
 
-import edu.project.entities.Projet;
-import edu.project.entities.Equipe;
-import edu.project.interfaces.IService;
-import edu.project.tools.MyConnection;
+import edu.ProjetPi.entities.Projet;
+import edu.ProjetPi.entities.Equipe;
+import edu.ProjetPi.interfaces.IService;
+import edu.ProjetPi.tools.MyConnection;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -114,3 +114,4 @@ public class ProjetService implements IService<Projet> {
         return projets;
     }
 }
+
