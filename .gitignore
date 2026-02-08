@@ -1,0 +1,15 @@
+# Java 
+*.class 
+*.jar 
+*.war 
+Commande ECHO activ‚e.
+# Maven 
+target/ 
+Commande ECHO activ‚e.
+# IDE 
+.idea/ 
+*.iml 
+Commande ECHO activ‚e.
+# System 
+.DS_Store 
+Thumbs.db 
