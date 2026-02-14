@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.geometry.Insets?>
+
+<VBox xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="edu.project.controllers.CandidatureController"
+      spacing="15" alignment="TOP_CENTER" prefHeight="600.0" prefWidth="800.0"
+      style="-fx-background-color: #ecf0f1; -fx-padding: 20;">
+
+    <Label text="Gestion des Candidatures"
+           style="-fx-font-size: 24px; -fx-font-weight: bold; -fx-text-fill: #2980b9;" />
+
+    <!-- Formulaire -->
+    <GridPane hgap="10" vgap="10">
+        <columnConstraints>
+            <ColumnConstraints percentWidth="30"/>
+            <ColumnConstraints percentWidth="70"/>
+        </columnConstraints>
+
+        <Label text="Date Dépot:" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+        <DatePicker fx:id="dpDepot" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+
+        <Label text="Statut:" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+        <TextField fx:id="txtStatut" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+
+        <Label text="Disponibilité:" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+        <TextField fx:id="txtDisponibilite" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+
+        <Label text="Score:" GridPane.rowIndex="3" GridPane.columnIndex="0"/>
+        <TextField fx:id="txtScore" GridPane.rowIndex="3" GridPane.columnIndex="1"/>
+
+        <Label text="CV:" GridPane.rowIndex="4" GridPane.columnIndex="0"/>
+        <HBox spacing="8" GridPane.rowIndex="4" GridPane.columnIndex="1">
+            <TextField fx:id="txtCv" editable="false"/>
+            <Button fx:id="btnUpload" text="Upload" onAction="#chooseCv" />
+        </HBox>
+
+        <Label text="Offre ID:" GridPane.rowIndex="5" GridPane.columnIndex="0"/>
+        <TextField fx:id="txtOffreId" GridPane.rowIndex="5" GridPane.columnIndex="1"/>
+    </GridPane>
+
+    <!-- Boutons CRUD -->
+    <HBox spacing="15" alignment="CENTER">
+        <Button fx:id="btnAjouter" text="Ajouter" style="-fx-background-color:#27ae60; -fx-text-fill:white;" onAction="#ajouter"/>
+        <Button fx:id="btnModifier" text="Modifier" style="-fx-background-color:#f39c12; -fx-text-fill:white;" onAction="#modifier"/>
+    </HBox>
+
+    <!-- Recherche -->
+    <HBox spacing="10" alignment="CENTER_RIGHT">
+        <Label text="Rechercher:"/>
+        <TextField fx:id="txtRecherche" promptText="Tapez un mot..." onKeyReleased="#rechercher"/>
+    </HBox>
+
+    <!-- Cards container -->
+    <ScrollPane fitToWidth="true" prefHeight="320">
+        <FlowPane fx:id="cardsContainer" hgap="12" vgap="12" prefWrapLength="720">
+            <padding><Insets top="12" right="12" bottom="12" left="12" /></padding>
+        </FlowPane>
+    </ScrollPane>
+
+</VBox>

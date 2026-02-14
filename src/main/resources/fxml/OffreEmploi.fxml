@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.geometry.Insets?>
+
+<VBox xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="edu.project.controllers.OffreEmploiController"
+      spacing="10" alignment="TOP_CENTER"
+      prefWidth="800" prefHeight="600"
+      style="-fx-background-color: #ecf0f1; -fx-padding: 20;">
+
+    <Label text="Gestion des Offres d'Emploi"
+           style="-fx-font-size: 24px; -fx-font-weight: bold; -fx-text-fill: #2980b9;"/>
+
+    <GridPane hgap="10" vgap="10">
+        <Label text="Titre:" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+        <TextField fx:id="txtTitre" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+
+        <Label text="Type Contrat:" GridPane.rowIndex="0" GridPane.columnIndex="2"/>
+        <TextField fx:id="txtTypeContrat" GridPane.rowIndex="0" GridPane.columnIndex="3"/>
+
+        <Label text="Salaire:" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+        <TextField fx:id="txtSalaire" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+
+        <Label text="Publication:" GridPane.rowIndex="1" GridPane.columnIndex="2"/>
+        <DatePicker fx:id="dpPublication" GridPane.rowIndex="1" GridPane.columnIndex="3"/>
+
+        <Label text="Expiration:" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+        <DatePicker fx:id="dpExpiration" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+
+        <Label text="Description:" GridPane.rowIndex="3" GridPane.columnIndex="0"/>
+        <TextArea fx:id="txtDescription" prefRowCount="3" GridPane.rowIndex="3" GridPane.columnIndex="1" GridPane.columnSpan="3"/>
+    </GridPane>
+
+    <HBox spacing="10" alignment="CENTER">
+        <Button text="Ajouter" onAction="#ajouter"
+                style="-fx-background-color:#27ae60; -fx-text-fill:white;"/>
+        <Button text="Modifier" onAction="#modifier"
+                style="-fx-background-color:#f39c12; -fx-text-fill:white;"/>
+
+    </HBox>
+
+    <Label text="Recherche:"/>
+    <TextField fx:id="txtRecherche" onKeyReleased="#rechercher" promptText="Rechercher par titre, type ou description"/>
+
+    <!-- Cards container -->
+    <ScrollPane fitToWidth="true" prefHeight="320">
+        <FlowPane fx:id="cardsContainer" hgap="12" vgap="12" prefWrapLength="720">
+            <padding><Insets top="12" right="12" bottom="12" left="12" /></padding>
+        </FlowPane>
+    </ScrollPane>
+
+</VBox>

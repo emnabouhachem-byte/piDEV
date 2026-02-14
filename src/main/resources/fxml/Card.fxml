@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.geometry.Insets?>
+
+<AnchorPane xmlns:fx="http://javafx.com/fxml" fx:controller="edu.project.controllers.CardController" prefWidth="320" prefHeight="160" styleClass="card">
+    <children>
+        <VBox spacing="8" AnchorPane.topAnchor="8" AnchorPane.leftAnchor="8" AnchorPane.rightAnchor="8" AnchorPane.bottomAnchor="8">
+            <Label fx:id="lblTitle" styleClass="card-title" wrapText="true" />
+            <Label fx:id="lblMeta" styleClass="card-meta" />
+            <Label fx:id="lblDescription" wrapText="true" style="-fx-text-fill: #333333;" />
+            <HBox spacing="8" alignment="CENTER_RIGHT">
+                <Button fx:id="btnView" text="View" styleClass="card-button" />
+                <Button fx:id="btnEdit" text="Edit" styleClass="card-button" />
+                <Button fx:id="btnDelete" text="Delete" styleClass="card-button" />
+            </HBox>
+        </VBox>
+    </children>
+</AnchorPane>

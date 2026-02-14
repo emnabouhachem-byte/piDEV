@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.geometry.Insets?>
+<?import java.lang.String?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml" fx:controller="edu.project.controllers.MainController"
+            fx:id="mainBorderPane">
+
+    <stylesheets>
+        <String fx:value="/styles/styles.css" />
+    </stylesheets>
+
+    <!-- Left sidebar for navigation -->
+    <left>
+        <VBox fx:id="sidebar" spacing="20" alignment="TOP_CENTER" prefWidth="220" styleClass="sidebar">
+            <Label text="KhedmaFlow" styleClass="app-title" />
+            <VBox spacing="6" style="-fx-padding: 10;" >
+                <Button text="Offres" fx:id="btnOffre" onAction="#openOffre" styleClass="sidebar-button" />
+                <Button text="Candidatures" fx:id="btnCandidature" onAction="#openCandidature" styleClass="sidebar-button" />
+            </VBox>
+        </VBox>
+    </left>
+
+    <!-- Top header -->
+    <top>
+        <HBox alignment="CENTER_LEFT" style="-fx-padding: 14 20 14 20;" >
+            <Label text="KhedmaFlow - Gestion des Ressources Humaines" styleClass="header-title" />
+        </HBox>
+    </top>
+
+    <!-- Main content area where module views will be loaded -->
+    <center>
+        <StackPane fx:id="mainContent" />
+    </center>
+
+</BorderPane>
